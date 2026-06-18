@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sigrid Styling - Space Crawl volledig weg</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#111827;font-family:Arial,Helvetica,sans-serif;color:white;padding:16px;overflow:hidden}
+.scene{width:min(1000px,96vw);height:500px;max-height:500px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 20%,rgba(86,199,255,.12),transparent 25%),radial-gradient(circle at 80% 10%,rgba(255,216,74,.08),transparent 22%),linear-gradient(180deg,#01020a,#050716 65%,#01020a);border:5px solid #000;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.55);perspective:520px;isolation:isolate}
+.stars{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.star{position:absolute;display:block;border-radius:50%;box-shadow:0 0 8px currentColor;animation-name:twinkle;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.fade-top{display:none}
+.fade-bottom{display:none}
+.intro{position:absolute;inset:0;display:grid;place-items:center;z-index:8;text-align:center;padding:30px;color:#56c7ff;font-weight:700;font-size:clamp(1.3rem,3vw,2.4rem);letter-spacing:.5px;animation:introFade 5.2s ease forwards;text-shadow:0 0 18px rgba(86,199,255,.75)}
+.crawl-wrap{position:absolute;z-index:4;left:50%;top:0;width:min(1120px,110%);height:100%;transform:translateX(-50%) rotateX(38deg);transform-origin:50% 100%;overflow:visible}
+.crawl{position:absolute;left:-8%;right:-8%;top:calc(100% + 220px);color:#ffd84a;text-align:center;font-weight:900;line-height:1.35;letter-spacing:.5px;font-size:clamp(2.6rem,6.4vw,5.1rem);text-shadow:0 0 10px rgba(255,216,74,.55);opacity:0;animation:crawl 30s linear 5.35s forwards}
+.crawl h1{text-align:center;margin:0 0 18px;font-size:clamp(4.2rem,11.6vw,9.6rem);line-height:1;text-transform:uppercase;letter-spacing:2px}
+.crawl h2{text-align:center;margin:0 0 26px;font-size:clamp(2.5rem,7.2vw,4.6rem);text-transform:uppercase;letter-spacing:1px}
+.crawl p{margin:0 auto 24px;max-width:900px}
+.controls{position:absolute;right:14px;bottom:14px;z-index:10;display:flex;gap:10px}
+button{border:0;border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18);font-weight:900;cursor:pointer;backdrop-filter:blur(8px)}
+button:hover{background:rgba(255,255,255,.2)}
+@keyframes crawl{0%{transform:translateY(0) scaleX(1.04);opacity:1}35%{transform:translateY(-900px) scaleX(1.00);opacity:1}70%{transform:translateY(-1900px) scaleX(.96);opacity:1}98%{transform:translateY(-3100px) scaleX(.92);opacity:1}100%{transform:translateY(-3300px) scaleX(.92);opacity:0}}
+@keyframes introFade{0%{opacity:0}12%{opacity:1}72%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes twinkle{0%,100%{transform:scale(.75);filter:brightness(.65);box-shadow:0 0 2px currentColor}38%{transform:scale(1.35);filter:brightness(2.4);box-shadow:0 0 12px currentColor,0 0 22px currentColor}55%{transform:scale(.9);filter:brightness(.9);box-shadow:0 0 5px currentColor}}
+@media(max-width:650px){.scene{height:500px}.crawl-wrap{position:absolute;z-index:4;left:50%;top:0;width:min(1120px,110%);height:100%;transform:translateX(-50%) rotateX(38deg);transform-origin:50% 100%;overflow:visible}.crawl{position:absolute;left:-8%;right:-8%;top:calc(100% + 220px);color:#ffd84a;text-align:center;font-weight:900;line-height:1.35;letter-spacing:.5px;font-size:clamp(2.6rem,6.4vw,5.1rem);text-shadow:0 0 10px rgba(255,216,74,.55);opacity:0;animation:crawl 30s linear 5.35s forwards}}
+</style>
+</head>
+<body>
+<main class="scene">
+<div class="stars" aria-hidden="true">
+<span class="star" style="left:63.94%;top:2.50%;width:2px;height:2px;animation-delay:1.22s;animation-duration:1.79s;opacity:0.41;background:#ffffff;"></span>
+<span class="star" style="left:59.05%;top:3.18%;width:1px;height:1px;animation-delay:1.09s;animation-duration:2.81s;opacity:0.37;background:#ffffff;"></span>
+<span class="star" style="left:71.60%;top:70.13%;width:2.5px;height:2.5px;animation-delay:1.10s;animation-duration:3.05s;opacity:0.84;background:#ffffff;"></span>
+<span class="star" style="left:75.88%;top:15.97%;width:2.5px;height:2.5px;animation-delay:1.70s;animation-duration:1.84s;opacity:0.92;background:#dff5ff;"></span>
+<span class="star" style="left:10.22%;top:37.99%;width:2px;height:2px;animation-delay:4.24s;animation-duration:3.09s;opacity:0.83;background:#fff2b8;"></span>
+<span class="star" style="left:53.62%;top:97.31%;width:2.5px;height:2.5px;animation-delay:0.39s;animation-duration:2.22s;opacity:0.73;background:#dff5ff;"></span>
+<span class="star" style="left:57.74%;top:70.46%;width:1px;height:1px;animation-delay:3.31s;animation-duration:3.56s;opacity:0.94;background:#ffffff;"></span>
+<span class="star" style="left:86.65%;top:38.01%;width:2.5px;height:2.5px;animation-delay:3.18s;animation-duration:2.42s;opacity:0.57;background:#ffffff;"></span>
+<span class="star" style="left:67.02%;top:70.18%;width:1px;height:1px;animation-delay:3.05s;animation-duration:1.88s;opacity:0.79;background:#ffffff;"></span>
+<span class="star" style="left:46.23%;top:26.99%;width:3px;height:3px;animation-delay:1.10s;animation-duration:2.31s;opacity:0.81;background:#ffffff;"></span>
+<span class="star" style="left:22.90%;top:3.21%;width:2px;height:2px;animation-delay:2.01s;animation-duration:1.59s;opacity:0.90;background:#dff5ff;"></span>
+<span class="star" style="left:21.26%;top:49.92%;width:2.5px;height:2.5px;animation-delay:0.71s;animation-duration:1.79s;opacity:0.80;background:#dff5ff;"></span>
+<span class="star" style="left:74.70%;top:42.84%;width:3px;height:3px;animation-delay:2.00s;animation-duration:2.01s;opacity:0.95;background:#fff2b8;"></span>
+<span class="star" style="left:9.09%;top:4.71%;width:1px;height:1px;animation-delay:0.76s;animation-duration:1.85s;opacity:0.76;background:#ffffff;"></span>
+<span class="star" style="left:38.48%;top:59.59%;width:2.5px;height:2.5px;animation-delay:2.65s;animation-duration:4.12s;opacity:0.87;background:#ffffff;"></span>
+<span class="star" style="left:68.03%;top:11.46%;width:3px;height:3px;animation-delay:3.75s;animation-duration:3.55s;opacity:0.55;background:#dff5ff;"></span>
+<span class="star" style="left:43.48%;top:45.37%;width:2px;height:2px;animation-delay:4.86s;animation-duration:3.53s;opacity:0.65;background:#ffffff;"></span>
+<span class="star" style="left:87.05%;top:29.84%;width:3px;height:3px;animation-delay:3.04s;animation-duration:1.83s;opacity:0.81;background:#ffffff;"></span>
+<span class="star" style="left:59.89%;top:48.86%;width:1px;height:1px;animation-delay:4.65s;animation-duration:3.86s;opacity:0.85;background:#dff5ff;"></span>
+<span class="star" style="left:23.95%;top:24.09%;width:3px;height:3px;animation-delay:4.73s;animation-duration:1.64s;opacity:0.64;background:#ffffff;"></span>
+<span class="star" style="left:97.80%;top:53.27%;width:1.5px;height:1.5px;animation-delay:0.64s;animation-duration:2.73s;opacity:0.68;background:#dff5ff;"></span>
+<span class="star" style="left:52.77%;top:60.66%;width:1.5px;height:1.5px;animation-delay:4.64s;animation-duration:3.51s;opacity:0.76;background:#dff5ff;"></span>
+<span class="star" style="left:39.90%;top:67.17%;width:2px;height:2px;animation-delay:2.19s;animation-duration:2.85s;opacity:0.42;background:#ffffff;"></span>
+<span class="star" style="left:6.40%;top:2.10%;width:3px;height:3px;animation-delay:1.15s;animation-duration:2.02s;opacity:0.39;background:#ffffff;"></span>
+<span class="star" style="left:22.89%;top:90.54%;width:2px;height:2px;animation-delay:0.35s;animation-duration:2.07s;opacity:0.75;background:#ffffff;"></span>
+<span class="star" style="left:53.92%;top:72.34%;width:3px;height:3px;animation-delay:2.88s;animation-duration:2.08s;opacity:0.63;background:#fff2b8;"></span>
+<span class="star" style="left:19.04%;top:9.69%;width:2.5px;height:2.5px;animation-delay:1.77s;animation-duration:2.55s;opacity:0.87;background:#ffffff;"></span>
+<span class="star" style="left:67.34%;top:98.42%;width:1px;height:1px;animation-delay:0.30s;animation-duration:3.44s;opacity:0.83;background:#ffffff;"></span>
+<span class="star" style="left:24.87%;top:19.02%;width:2.5px;height:2.5px;animation-delay:0.70s;animation-duration:1.91s;opacity:0.63;background:#ffffff;"></span>
+<span class="star" style="left:44.31%;top:86.13%;width:3px;height:3px;animation-delay:0.49s;animation-duration:3.23s;opacity:0.67;background:#ffffff;"></span>
+<span class="star" style="left:96.90%;top:92.64%;width:1.5px;height:1.5px;animation-delay:0.83s;animation-duration:2.76s;opacity:0.48;background:#fff2b8;"></span>
+<span class="star" style="left:90.24%;top:16.46%;width:1px;height:1px;animation-delay:4.93s;animation-duration:2.14s;opacity:0.82;background:#fff2b8;"></span>
+<span class="star" style="left:28.52%;top:69.66%;width:3px;height:3px;animation-delay:3.31s;animation-duration:2.76s;opacity:0.46;background:#ffffff;"></span>
+<span class="star" style="left:96.87%;top:57.92%;width:3px;height:3px;animation-delay:0.30s;animation-duration:2.28s;opacity:0.38;background:#fff2b8;"></span>
+<span class="star" style="left:50.29%;top:85.27%;width:1.5px;height:1.5px;animation-delay:0.28s;animation-duration:2.82s;opacity:0.86;background:#ffffff;"></span>
+<span class="star" style="left:59.50%;top:67.52%;width:1.5px;height:1.5px;animation-delay:2.02s;animation-duration:4.04s;opacity:0.69;background:#ffffff;"></span>
+<span class="star" style="left:61.94%;top:41.92%;width:3px;height:3px;animation-delay:2.83s;animation-duration:2.29s;opacity:0.51;background:#dff5ff;"></span>
+<span class="star" style="left:23.87%;top:39.58%;width:2px;height:2px;animation-delay:2.29s;animation-duration:4.00s;opacity:0.91;background:#ffffff;"></span>
+<span class="star" style="left:45.83%;top:99.85%;width:1px;height:1px;animation-delay:0.37s;animation-duration:2.00s;opacity:0.51;background:#dff5ff;"></span>
+<span class="star" style="left:88.09%;top:87.93%;width:2px;height:2px;animation-delay:1.42s;animation-duration:2.63s;opacity:0.68;background:#dff5ff;"></span>
+<span class="star" style="left:61.17%;top:98.72%;width:3px;height:3px;animation-delay:0.04s;animation-duration:3.69s;opacity:0.53;background:#ffffff;"></span>
+<span class="star" style="left:93.89%;top:13.43%;width:1px;height:1px;animation-delay:4.45s;animation-duration:3.48s;opacity:0.44;background:#dff5ff;"></span>
+<span class="star" style="left:60.48%;top:71.76%;width:1.5px;height:1.5px;animation-delay:3.44s;animation-duration:3.79s;opacity:0.65;background:#dff5ff;"></span>
+<span class="star" style="left:90.53%;top:84.61%;width:1px;height:1px;animation-delay:3.17s;animation-duration:3.72s;opacity:0.38;background:#dff5ff;"></span>
+<span class="star" style="left:77.11%;top:63.71%;width:2px;height:2px;animation-delay:0.81s;animation-duration:2.64s;opacity:0.77;background:#ffffff;"></span>
+<span class="star" style="left:11.19%;top:94.51%;width:1.5px;height:1.5px;animation-delay:2.73s;animation-duration:3.74s;opacity:0.70;background:#ffffff;"></span>
+<span class="star" style="left:42.98%;top:4.18%;width:2px;height:2px;animation-delay:4.49s;animation-duration:3.63s;opacity:0.87;background:#dff5ff;"></span>
+<span class="star" style="left:21.01%;top:24.95%;width:1px;height:1px;animation-delay:1.77s;animation-duration:2.97s;opacity:0.87;background:#ffffff;"></span>
+<span class="star" style="left:92.58%;top:23.67%;width:1.5px;height:1.5px;animation-delay:4.88s;animation-duration:3.67s;opacity:0.88;background:#ffffff;"></span>
+<span class="star" style="left:17.94%;top:92.45%;width:2.5px;height:2.5px;animation-delay:4.01s;animation-duration:3.82s;opacity:0.84;background:#dff5ff;"></span>
+<span class="star" style="left:15.92%;top:70.13%;width:2.5px;height:2.5px;animation-delay:4.36s;animation-duration:3.80s;opacity:0.48;background:#fff2b8;"></span>
+<span class="star" style="left:34.97%;top:82.05%;width:1.5px;height:1.5px;animation-delay:1.11s;animation-duration:3.25s;opacity:0.59;background:#dff5ff;"></span>
+<span class="star" style="left:86.44%;top:96.69%;width:2px;height:2px;animation-delay:1.76s;animation-duration:2.83s;opacity:0.76;background:#dff5ff;"></span>
+<span class="star" style="left:93.92%;top:11.53%;width:2px;height:2px;animation-delay:0.89s;animation-duration:4.10s;opacity:0.51;background:#ffffff;"></span>
+<span class="star" style="left:59.66%;top:34.57%;width:2px;height:2px;animation-delay:2.18s;animation-duration:4.16s;opacity:0.42;background:#ffffff;"></span>
+<span class="star" style="left:25.47%;top:70.88%;width:1px;height:1px;animation-delay:2.60s;animation-duration:3.66s;opacity:0.76;background:#ffffff;"></span>
+<span class="star" style="left:36.42%;top:7.00%;width:2px;height:2px;animation-delay:3.12s;animation-duration:3.26s;opacity:0.42;background:#dff5ff;"></span>
+<span class="star" style="left:50.71%;top:66.69%;width:2px;height:2px;animation-delay:2.01s;animation-duration:2.23s;opacity:0.43;background:#fff2b8;"></span>
+<span class="star" style="left:66.49%;top:37.91%;width:1.5px;height:1.5px;animation-delay:3.08s;animation-duration:2.24s;opacity:0.68;background:#ffffff;"></span>
+<span class="star" style="left:30.39%;top:21.02%;width:3px;height:3px;animation-delay:3.03s;animation-duration:2.30s;opacity:0.62;background:#ffffff;"></span>
+<span class="star" style="left:51.12%;top:79.37%;width:1.5px;height:1.5px;animation-delay:3.29s;animation-duration:2.19s;opacity:0.75;background:#dff5ff;"></span>
+<span class="star" style="left:9.34%;top:95.20%;width:1.5px;height:1.5px;animation-delay:3.36s;animation-duration:2.03s;opacity:0.47;background:#ffffff;"></span>
+<span class="star" style="left:4.62%;top:98.39%;width:3px;height:3px;animation-delay:4.25s;animation-duration:1.60s;opacity:0.60;background:#ffffff;"></span>
+<span class="star" style="left:71.83%;top:38.40%;width:2.5px;height:2.5px;animation-delay:1.22s;animation-duration:3.24s;opacity:0.35;background:#ffffff;"></span>
+<span class="star" style="left:77.84%;top:21.88%;width:3px;height:3px;animation-delay:2.32s;animation-duration:2.96s;opacity:0.90;background:#ffffff;"></span>
+<span class="star" style="left:45.65%;top:80.14%;width:3px;height:3px;animation-delay:4.94s;animation-duration:3.07s;opacity:0.92;background:#fff2b8;"></span>
+<span class="star" style="left:61.27%;top:71.93%;width:3px;height:3px;animation-delay:2.13s;animation-duration:3.94s;opacity:0.62;background:#ffffff;"></span>
+<span class="star" style="left:74.37%;top:47.47%;width:2px;height:2px;animation-delay:3.76s;animation-duration:3.75s;opacity:0.52;background:#fff2b8;"></span>
+<span class="star" style="left:62.67%;top:27.46%;width:1px;height:1px;animation-delay:3.57s;animation-duration:2.06s;opacity:0.55;background:#ffffff;"></span>
+<span class="star" style="left:13.84%;top:23.13%;width:1.5px;height:1.5px;animation-delay:3.53s;animation-duration:1.58s;opacity:0.59;background:#fff2b8;"></span>
+<span class="star" style="left:41.58%;top:20.68%;width:2.5px;height:2.5px;animation-delay:1.95s;animation-duration:3.56s;opacity:0.92;background:#ffffff;"></span>
+<span class="star" style="left:85.67%;top:76.56%;width:2.5px;height:2.5px;animation-delay:2.38s;animation-duration:4.04s;opacity:0.53;background:#fff2b8;"></span>
+<span class="star" style="left:85.34%;top:95.34%;width:2.5px;height:2.5px;animation-delay:2.69s;animation-duration:3.46s;opacity:0.83;background:#ffffff;"></span>
+<span class="star" style="left:48.82%;top:27.29%;width:2.5px;height:2.5px;animation-delay:0.15s;animation-duration:2.34s;opacity:0.76;background:#fff2b8;"></span>
+<span class="star" style="left:72.42%;top:84.05%;width:1.5px;height:1.5px;animation-delay:4.90s;animation-duration:2.90s;opacity:0.89;background:#ffffff;"></span>
+<span class="star" style="left:8.39%;top:42.86%;width:2.5px;height:2.5px;animation-delay:0.91s;animation-duration:2.13s;opacity:0.55;background:#fff2b8;"></span>
+<span class="star" style="left:32.68%;top:76.12%;width:2.5px;height:2.5px;animation-delay:1.39s;animation-duration:4.06s;opacity:0.60;background:#ffffff;"></span>
+<span class="star" style="left:47.03%;top:74.90%;width:1px;height:1px;animation-delay:5.00s;animation-duration:2.38s;opacity:0.74;background:#ffffff;"></span>
+<span class="star" style="left:75.42%;top:94.96%;width:1.5px;height:1.5px;animation-delay:4.20s;animation-duration:3.14s;opacity:0.49;background:#fff2b8;"></span>
+<span class="star" style="left:66.95%;top:56.40%;width:1.5px;height:1.5px;animation-delay:2.33s;animation-duration:2.12s;opacity:0.57;background:#ffffff;"></span>
+<span class="star" style="left:77.78%;top:16.38%;width:2px;height:2px;animation-delay:0.54s;animation-duration:1.47s;opacity:0.54;background:#fff2b8;"></span>
+<span class="star" style="left:39.67%;top:71.50%;width:1px;height:1px;animation-delay:2.96s;animation-duration:3.73s;opacity:0.50;background:#dff5ff;"></span>
+<span class="star" style="left:85.03%;top:60.04%;width:1px;height:1px;animation-delay:3.98s;animation-duration:2.98s;opacity:0.37;background:#fff2b8;"></span>
+<span class="star" style="left:66.15%;top:6.90%;width:2px;height:2px;animation-delay:0.06s;animation-duration:2.58s;opacity:0.64;background:#fff2b8;"></span>
+<span class="star" style="left:96.08%;top:63.56%;width:2.5px;height:2.5px;animation-delay:3.54s;animation-duration:2.62s;opacity:0.79;background:#dff5ff;"></span>
+<span class="star" style="left:61.59%;top:91.96%;width:2.5px;height:2.5px;animation-delay:2.32s;animation-duration:3.71s;opacity:0.71;background:#dff5ff;"></span>
+<span class="star" style="left:85.17%;top:83.07%;width:1px;height:1px;animation-delay:1.39s;animation-duration:2.66s;opacity:0.80;background:#fff2b8;"></span>
+<span class="star" style="left:33.64%;top:49.43%;width:2px;height:2px;animation-delay:0.91s;animation-duration:1.99s;opacity:0.83;background:#dff5ff;"></span>
+<span class="star" style="left:27.97%;top:59.62%;width:2px;height:2px;animation-delay:2.78s;animation-duration:2.85s;opacity:0.46;background:#ffffff;"></span>
+<span class="star" style="left:72.01%;top:48.86%;width:1.5px;height:1.5px;animation-delay:3.45s;animation-duration:3.21s;opacity:0.64;background:#ffffff;"></span>
+</div>
+<div class="fade-top"></div>
+<div class="fade-bottom"></div>
+<div class="intro">In een klaslokaal niet zo heel ver hier vandaan...</div>
+<section class="crawl-wrap" aria-label="Introductietekst Sigrid Styling">
+<article class="crawl" id="crawl">
+<h1>Sigrid Styling</h1>
+<h2>Beroepsproject ICT Support</h2>
+<p>Je gaat in deze cursus aan de slag voor Sigrid Styling, een start-up in de stylingbranche.</p>
+<p>Zij hebben twee werkplekken nodig en willen ook graag met een tablet kunnen werken.</p>
+<p>Je gaat de werkplekken inrichten volgens de wensen van de medewerkers.</p>
+<p>Ook installeer je zowel Nederlandse als Engelse software.</p>
+<p>Aan het einde laat je zien dat de werkplekken netjes, veilig en gebruiksklaar zijn opgeleverd.</p>
+</article>
+</section>
+<div class="controls">
+<button type="button" id="restart">Opnieuw</button>
+<button type="button" id="pause">Pauze</button>
+</div>
+</main>
+<script>
+const crawl=document.querySelector("#crawl");
+const intro=document.querySelector(".intro");
+const restart=document.querySelector("#restart");
+const pause=document.querySelector("#pause");
+const stars=document.querySelectorAll(".star");
+let paused=false;
+function restartAnimations(){
+  crawl.style.animation="none";
+  intro.style.animation="none";
+  void crawl.offsetWidth;
+  void intro.offsetWidth;
+  crawl.style.animation="crawl 30s linear 5.35s forwards";
+  intro.style.animation="introFade 5.2s ease forwards";
+  paused=false;
+  pause.textContent="Pauze";
+  crawl.style.animationPlayState="running";
+  intro.style.animationPlayState="running";
+  stars.forEach(star=>star.style.animationPlayState="running");
+}
+restart.addEventListener("click",restartAnimations);
+pause.addEventListener("click",()=>{
+  paused=!paused;
+  crawl.style.animationPlayState=paused?"paused":"running";
+  intro.style.animationPlayState=paused?"paused":"running";
+  stars.forEach(star=>star.style.animationPlayState=paused?"paused":"running");
+  pause.textContent=paused?"Verder":"Pauze";
+});
+</script>
+</body>
+</html>
