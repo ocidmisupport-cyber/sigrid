@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Richt werkplekken in voor Sigrid Styling</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.tab-wrapper {
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  border-radius: 22px;
+  background: linear-gradient(160deg, #000000 0%, #1f1f1f 38%, #efa242 100%);
+}
+
+.banner {
+  height: 145px;
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 22px 22px 0 0;
+  color: white;
+  padding: 22px 32px 16px;
+}
+
+.banner h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+  line-height: 1.1;
+  color: white;
+}
+
+.banner p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.35;
+  max-width: 870px;
+  color: white;
+}
+
+.chips {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.chips span {
+  background: white;
+  color: #12333a;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 13px;
+}
+
+.tab-page {
+  height: 355px;
+  display: flex;
+  gap: 12px;
+  border: none;
+  border-radius: 0 0 22px 22px;
+  overflow: hidden;
+  background: transparent;
+  padding: 0 14px 14px 0;
+}
+
+.tab-menu {
+  flex: 0 0 205px;
+  width: 205px;
+  background: transparent;
+  padding: 8px 0 10px 12px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.tab-button {
+  width: 100%;
+  display: block;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  text-align: left;
+  padding: 6px 12px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.2px;
+  line-height: 1.1;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  background: #efa242;
+  color: #12333a;
+}
+
+.tab-content-area {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 341px;
+  padding: 14px 24px;
+  overflow-y: hidden;
+  background: rgba(255,255,255,0.74);
+  border-radius: 18px;
+  backdrop-filter: blur(1px);
+  position: relative;
+  z-index: 1;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h2 {
+  color: #1e7e8f;
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.tab-content p {
+  font-size: 14px;
+  line-height: 1.24;
+  margin: 0 0 5px;
+  color: #24343a;
+}
+
+.tab-content ul,
+.tab-content ol {
+  margin: 4px 0 6px 20px;
+  padding: 0;
+}
+
+.tab-content li {
+  font-size: 14px;
+  line-height: 1.22;
+  margin-bottom: 3px;
+  color: #24343a;
+}
+
+.note,
+.info {
+  background: rgba(247,250,251,0.72);
+  border-left: 5px solid #efa242;
+  padding: 8px 11px;
+  border-radius: 10px;
+  color: #24343a;
+  margin: 7px 0;
+  font-size: 14px;
+  line-height: 1.22;
+}
+
+.action-link {
+  display: inline-block;
+  background: #efa242;
+  color: #12333a;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-weight: bold;
+  font-size: 13.5px;
+  margin-top: 4px;
+}
+
+.action-link:hover {
+  background: #d98f32;
+  color: #12333a;
+}
+
+.badge {
+  display: inline-block;
+  background: #1e7e8f;
+  color: white;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  margin-bottom: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="tab-wrapper">
+
+  <section class="banner">
+    <h1>Richt werkplekken in voor Sigrid Styling</h1>
+    <p>Je werkt voor een start-up in de stylingbranche. Je bereidt werkzaamheden voor, richt devices en software in, zorgt voor verbinding en legt je werk duidelijk vast.</p>
+
+    <div class="chips">
+      <span>🔎 Voorbereiden</span>
+      <span>🛠️ Uitvoeren</span>
+      <span>💻 Hardware & software</span>
+      <span>📁 Portfolio</span>
+      <span>✅ Bewijs verzamelen</span>
+    </div>
+  </section>
+
+  <div class="tab-page">
+    <div class="tab-menu">
+      <button class="tab-button active" onclick="openTab(event, 'over')">Opdracht</button>
+      <button class="tab-button" onclick="openTab(event, 'doen')">Wat ga je doen?</button>
+      <button class="tab-button" onclick="openTab(event, 'werkenaan')">Waar werk je aan?</button>
+      <button class="tab-button" onclick="openTab(event, 'voorbereiden')">Voorbereiden</button>
+      <button class="tab-button" onclick="openTab(event, 'stappen')">Stappen</button>
+      <button class="tab-button" onclick="openTab(event, 'project')">Beroepsproject</button>
+      <button class="tab-button" onclick="openTab(event, 'portfolio')">Portfolio</button>
+      <button class="tab-button" onclick="openTab(event, 'onthoud')">Onthoud</button>
+    </div>
+
+    <div class="tab-content-area">
+
+      <div id="over" class="tab-content active">
+        <h2>Sigrid Styling</h2>
+        <p>In deze afsluitende module ga je aan de slag voor <strong>Sigrid Styling</strong>. Dit is een start-up in de stylingbranche.</p>
+        <p>Sigrid Styling heeft twee werkplekken nodig en wil ook graag met een tablet kunnen werken.</p>
+        <p>Jij bereidt de werkzaamheden voor, voert ze uit en legt duidelijk vast wat je hebt gedaan.</p>
+        <p class="note"><strong>Belangrijk:</strong> je werkt niet alleen aan het eindresultaat. Je laat ook zien hoe je hebt voorbereid, uitgevoerd, gecontroleerd en vastgelegd.</p>
+      </div>
+
+      <div id="doen" class="tab-content">
+        <h2>Wat ga je doen?</h2>
+        <p>Je richt de werkplekken in volgens de wensen van de medewerkers. Daarbij werk je met devices, software, instellingen en verbindingen.</p>
+        <p>Je installeert en configureert hardware en software. Denk hierbij ook aan Nederlandse en Engelse software.</p>
+        <p>Daarna controleer je of alles werkt. Wat je doet, leg je duidelijk vast met screenshots, foto’s, notities of ingevulde documenten.</p>
+        <p>Zo laat je zien dat je professioneel en volgens opdracht kunt werken.</p>
+      </div>
+
+      <div id="werkenaan" class="tab-content">
+        <h2>Waar werk je aan?</h2>
+        <p>In dit beroepsproject laat je zien dat je verschillende ICT-werkzaamheden kunt voorbereiden, uitvoeren en onderbouwen.</p>
+        <ul>
+          <li>Je maakt devices gebruiksklaar volgens opdracht en procedures.</li>
+          <li>Je installeert, configureert en onderhoudt software.</li>
+          <li>Je monteert en/of configureert netwerk- en infrastructuuronderdelen.</li>
+          <li>Je stemt werkzaamheden en klantwensen duidelijk af.</li>
+          <li>Je verzamelt bewijs en verwerkt dit netjes in je portfolio.</li>
+        </ul>
+      </div>
+
+      <div id="voorbereiden" class="tab-content">
+        <h2>Eerst goed voorbereiden</h2>
+        <p>Lees de opdracht op de website van Stichting Praktijkleren goed door voordat je begint.</p>
+        <p>Bekijk welke devices, software, instellingen, materialen en bewijzen nodig zijn. Zo weet je wat er van je verwacht wordt.</p>
+        <p>Maak daarna een korte planning. Noteer ook vragen die je nog hebt voor je docent.</p>
+        <p class="info"><strong>Tip:</strong> een goede voorbereiding voorkomt dat je tijdens het uitvoeren belangrijke stappen vergeet.</p>
+      </div>
+
+      <div id="stappen" class="tab-content">
+        <h2>Werk in drie stappen</h2>
+        <ol>
+          <li><strong>Lees:</strong> open het beroepsproject en lees de opdracht, eisen en opleverpunten.</li>
+          <li><strong>Plan:</strong> bepaal welke stappen je gaat uitvoeren en welke materialen je nodig hebt.</li>
+          <li><strong>Bewijs:</strong> maak tijdens het werken screenshots, foto’s, notities en ingevulde documenten.</li>
+        </ol>
+        <p>Door in stappen te werken houd je overzicht. Je kunt beter uitleggen wat je hebt gedaan en waarom je bepaalde keuzes hebt gemaakt.</p>
+      </div>
+
+      <div id="project" class="tab-content">
+        <h2>Open het beroepsproject</h2>
+        <p>Het beroepsproject wordt uitgevoerd via Stichting Praktijkleren. Gebruik de knop hieronder om naar Sigrid Styling te gaan.</p>
+        <p>Lees de opdracht goed door en controleer welke producten, documenten en bewijzen je uiteindelijk moet opleveren.</p>
+        <p><a class="action-link" href="https://www.stichtingpraktijkleren.nl/index.php?id=150866" target="_blank" rel="noopener">Ga naar Sigrid Styling</a></p>
+        <p class="info"><strong>Let op:</strong> maak eerst duidelijk wat je moet doen voordat je begint met installeren of configureren.</p>
+      </div>
+
+      <div id="portfolio" class="tab-content">
+        <h2>Portfolio bijhouden</h2>
+        <p>Zet je bewijzen, uitwerkingen, screenshots, notities, servicebonnen en andere resultaten netjes in je portfolio.</p>
+        <p>Aan het einde van het beroepsproject voeg je ook de zelfbeoordeling uit de volgende pagina toe aan je portfolio.</p>
+        <ul>
+          <li>Bewijs van voorbereiding.</li>
+          <li>Bewijs van uitvoering.</li>
+          <li>Bewijs van controle.</li>
+          <li>Reflectie of zelfbeoordeling.</li>
+        </ul>
+      </div>
+
+      <div id="onthoud" class="tab-content">
+        <h2>Onthoud dit goed</h2>
+        <p>Je werkt voor een klant. Daarom is het belangrijk dat je netjes voorbereidt, duidelijk communiceert en controleert of alles werkt.</p>
+        <p>Bewaar tijdens het werken meteen je bewijs. Wacht daar niet mee tot het einde, want dan vergeet je snel wat je precies hebt gedaan.</p>
+        <p class="note"><strong>Belangrijk:</strong> laat in je portfolio zien wat je hebt gedaan, hoe je dat hebt aangepakt en waarom je keuzes logisch zijn.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function openTab(event, tabId) {
+  document.querySelectorAll(".tab-content").forEach(function(content) {
+    content.classList.remove("active");
+  });
+
+  document.querySelectorAll(".tab-button").forEach(function(button) {
+    button.classList.remove("active");
+  });
+
+  document.getElementById(tabId).classList.add("active");
+  event.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
+</html>
